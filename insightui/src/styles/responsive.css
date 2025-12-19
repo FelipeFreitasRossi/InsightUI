@@ -1,0 +1,149 @@
+/* src/styles/responsive.css */
+/* Mobile First Approach */
+
+/* Base */
+.container {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  
+  .responsive-hide-xs {
+    display: block !important;
+  }
+  
+  .responsive-show-xs {
+    display: none !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .metric-card {
+    min-height: 120px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .wide-chart {
+    grid-column: span 2;
+  }
+}
+
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .chart-tooltip {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --text-primary: #000000;
+  }
+  
+  .MuiButton-outlined {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode media query fallback */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-theme):not(.dark-theme) {
+    --bg-primary: #121212;
+    --text-primary: #ffffff;
+  }
+}
